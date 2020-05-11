@@ -1,0 +1,84 @@
+\documentclass[12pt]{book}
+
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{makeidx}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{makeidx}
+\usetikzlibrary{shadows}
+
+% format end of chapter excercises
+\newtheoremstyle{exercise}
+  {12pt}        % space above
+  {12pt}        % space below
+  {}            % body font
+  {}            % indent amount
+  {\bfseries}   % head font
+  {}            % punctuation
+  {12pt}        % head space
+  {}            % custom head
+\theoremstyle{exercise}
+\newtheorem{exercise}{Exercise}[chapter]
+
+\makeindex
+
+% automatically index glossary terms
+\newcommand{\term}[1]{%
+\item[#1:]\index{#1}}
+
+%%%%%% End preamble
+\begin{document}
+
+\newcommand{\thetitle}{Think CAD}
+\newcommand{\thesubtitle}{TBD}
+\newcommand{\theauthors}{Benjamin Smith}
+\newcommand{\theversion}{0.0.0}
+\newcommand*\keystroke[1]{%
+  \tikz[baseline=(key.base)]
+    \node[%
+      draw,
+      fill=white,
+      drop shadow={shadow xshift=0.25ex,shadow yshift=-0.25ex,fill=black,opacity=0.75},
+      rectangle,
+      rounded corners=2pt,
+      inner sep=1pt,
+      line width=0.5pt,
+      font=\scriptsize\sffamily
+    ](key) {#1\strut}
+  ;
+}
+\title{\thetitle}
+\author{\theauthors}
+
+
+% half title ---  ---  ---  ---  ---  ---  ---  ---  ---  ---  ---
+
+\thispagestyle{empty}
+
+\begin{flushright}
+\vspace*{2.0in}
+
+\begin{spacing}{3}
+{\huge \thetitle}
+\end{spacing}
+
+\vspace{0.25in}
+
+Version \theversion
+
+\vfill
+
+\end{flushright}
+
+%%%%%% begin document
+
+\include{ch0}
+\include{ch1}
+
+\end{document}
